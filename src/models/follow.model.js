@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
-const { applyTimestamps } = require('./post.model');
 
-const followSchema = new mongoose.schema({
+const followSchema = new mongoose.Schema({
     follower: {
-        type: mongoose.schema.Types.objcetId,
-        ref: "users",
-        required: [true, "follower is required"]
+        type: String,
     },
     followee: {
-        type: mongoose.schema.Types.objectId,
-        ref: "users",
-        required: [true, "followee is required"]
+        type: String,
     }
-}, { thisimestamps: true });
+}, { timestamps: true });
 
 
 //To prevent: User A follows User B multiple times
